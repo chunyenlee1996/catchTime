@@ -1,24 +1,42 @@
 <template>
-  <div class="icon">
-    <div class="topLeft" />
-    <div class="bottomRight" />
-    <img src="../assets/white_catchTime.svg" class="q-mr-xs logo" />
-    <div class="slogan text-center">享受每個快門的瞬間</div>
-    <div class="slogan2 text-center">Emotionally Immersed</div>
+  <div class="IndexContainer">
+    <div class="icon">
+      <div class="topLeft" />
+      <div class="bottomRight" />
+      <img src="../assets/white_catchTime.svg" class="q-mr-xs logo" />
+      <div class="slogan text-center">享受每個快門的瞬間</div>
+      <div class="slogan2 text-center">Emotionally Immersed</div>
+    </div>
+  <div class="bottomsBox">
+    <div class="bottom">
+      <div class="topLeft_btn" />
+      <div class="bottomRight_btn" />
+      <q-btn class="routerBtn" flat  label="發現" to="/ImagePage" />
+    </div>
+    <div class="bottom" >
+      <div class="topLeft_btn" />
+      <div class="bottomRight_btn" />
+      <q-btn class="routerBtn" flat  label="論壇" to="/PTTPage" />
+    </div>
+    <div class="bottom">
+      <div class="topLeft_btn" />
+      <div class="bottomRight_btn" />
+      <q-btn class="routerBtn" flat  label="活動" to="/ActivityPage" />
+    </div>
   </div>
+</div>
 </template>
-
-<style>
-.filter {
-  width: 100vw;
-  height: 100vh;
+<style scoped>
+.IndexContainer{
+  width: 400px;
+  height: 600px;
   position: absolute;
-  top: 0;
-  left: 0;
-  background-color: #41404065;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
   z-index: 1;
+  background-color: rgba(255, 255, 255, 0.229);
 }
-
 .icon {
   width: 300px;
   height: 300px;
@@ -26,8 +44,45 @@
   transform: translate(-50%, -50%);
   top: 30%;
   left: 50%;
-  background-color: rgba(255, 255, 255, 0.229);
+  /* background-color: rgba(255, 255, 255, 0.229); */
   z-index: 2;
+}
+
+.topLeft_btn {
+  position: relative;
+  width: 15px;
+  height: 5px;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+}
+.topLeft_btn::before {
+  content: '';
+  position: absolute;
+  width: 5px;
+  height: 15px;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+}
+
+.bottomRight_btn {
+  position: absolute;
+  width: 15px;
+  height: 5px;
+  bottom: 0;
+  right: 0;
+  background-color: #fff;
+}
+
+.bottomRight_btn::after {
+  content: '';
+  position: absolute;
+  width: 5px;
+  height: 15px;
+  bottom: 0;
+  right: 0;
+  background-color: #fff;
 }
 
 .topLeft {
@@ -38,7 +93,6 @@
   left: 0;
   background-color: #fff;
 }
-
 .topLeft::before {
   content: '';
   position: absolute;
@@ -93,5 +147,30 @@
   font-family: 'En1';
   font-size: 33px;
   font-weight: 600;
+}
+.bottomsBox{
+  width: 100%;
+  height: 7%;
+  position: absolute;
+  top: 70%;
+  display: flex;
+  justify-content: space-around;
+}
+.bottom{
+  width: 25%;
+  height: 100%;
+  /* background-color: #333; */
+  position: relative;
+}
+.routerBtn{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* display: block; */
+  width: 100%;
+  height: 100%;
+  font-size: 15px;
+  color: #fff;
 }
 </style>

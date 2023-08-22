@@ -12,16 +12,16 @@
           </div>
           <div class="btn">
             <q-btn v-if="result.join.includes(user.userId.toString())" label="取消參與"
-              @click="removeJoinActivity" v-close-popup />
+              @click="removeJoinActivity(idx)" v-close-popup />
             <q-btn v-if="!result.join.includes(user.userId.toString())" label="參加活動"
-              @click="joinActivity" v-close-popup />
+              @click="joinActivity(idx)" v-close-popup />
           </div>
         </div>
       </div>
 </template>
 
 <script setup>
-import { ref, reactive, onMounted } from 'vue'
+import { reactive, onMounted } from 'vue'
 import { useQuasar } from 'quasar'
 import { useUserStore } from 'src/stores/user'
 import { api, apiAuth } from 'src/boot/axios'
@@ -30,21 +30,20 @@ const $q = useQuasar()
 const user = useUserStore()
 
 const saveActivityData = reactive([{ head: '', date: '', join: '參加活動' }])
-const activityIndex = ref(0)
 
 // 取得活動資料
 const getActivityData = async () => {
   try {
     const { data } = await api.get('/activity/all')
     saveActivityData.splice(0, saveActivityData.length, ...data.result)
-    console.log(saveActivityData)
+    console.log(data.result)
   } catch (error) {
     console.log(error)
   }
 }
-const joinActivity = async () => {
+const joinActivity = async (value) => {
   try {
-    await apiAuth.post(`/activity/${saveActivityData.value[activityIndex.value]._id}`)
+    await apiAuth.post(`/activity/${saveActivityData[value]._id}`)
     getActivityData()
     $q.notify({
       message: 'success',
@@ -52,7 +51,7 @@ const joinActivity = async () => {
       color: 'secondary'
     })
   } catch (error) {
-    console.log(saveActivityData.value[activityIndex.value]._id)
+    console.log()
     $q.notify({
       message: 'error',
       caption: '參與活動失敗',
@@ -60,9 +59,9 @@ const joinActivity = async () => {
     })
   }
 }
-const removeJoinActivity = async () => {
+const removeJoinActivity = async (idx) => {
   try {
-    await apiAuth.patch(`/activity/${saveActivityData.value[activityIndex.value]._id}`)
+    await apiAuth.patch(`/activity/${saveActivityData[idx]._id}`)
     getActivityData()
     $q.notify({
       message: 'success',

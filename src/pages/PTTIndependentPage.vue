@@ -2,11 +2,13 @@
   <div class="topic-bg"/>
   <!-- display content -->
   <div class="absolute-top contentContainer">
-    <div class="q-mt-xl">
       <q-btn class="q-mb-md q-mr-md fixed-bottom-right" color="teal-2" icon="fa-solid fa-angles-left" label="back" to="/PTTPage" />
-    </div>
-    <div class="PTTContainerLeft absolute-center q-mt-md">
-      <SearchBar @SearchTheme="getData" />
+      <div class="PTTContainerLeft absolute-center q-mt-md">
+      <div class="absolute-top-left q-ma-xl">
+        <div class="text-h5 text-weight-medium" style="font-size: 30px;">Discovery</div>
+        <div class="q-mt-xs text-caption"> - {{ route.params.theme }}</div>
+      </div>
+      <SearchBar class="PTTSearchBar"  @SearchTheme="getData" />
       <!-- listHeaderGroup 標題列表(left) -->
       <div class="listHeaderGroup ">
         <q-scroll-area :thumb-style="thumbStyle" :bar-style="barStyle" style="height: 100%; width: 100%;">
@@ -235,5 +237,9 @@ const getData = async (value) => {
 .editorDialogContainer {
   width: 600px;
   background-color: #fff;
+}
+.PTTSearchBar{
+  width: 70%;
+  margin-left: 33%;
 }
 </style>

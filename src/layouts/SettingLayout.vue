@@ -16,6 +16,7 @@
         <q-tabs align="left" class="gt-xs">
           <q-route-tab to="/setting/PhotoSettingPage" label="圖片管理" />
           <q-route-tab to="/setting/PTTSettingPage" label="論壇管理" />
+          <q-route-tab to="/setting/ActivitySettingPage" label="活動管理" />
           <q-route-tab to="/IndexPage" label="離開" />
           <q-route-tab label="登出" v-if="isLogin" @click="logout" />
 
@@ -80,6 +81,12 @@ const menuList = computed(() => {
       iconName: 'fa-regular fa-comment',
       label: '論壇管理',
       to: '/setting/PTTSettingPage',
+      show: isAdmin
+    },
+    {
+      iconName: 'fa-regular fa-calendar-check',
+      label: '活動管理',
+      to: '/setting/ActivitySettingPage',
       show: isAdmin
     },
     {
