@@ -8,8 +8,8 @@
     <div class="col-3 justify-center flex q-mb-lg q-mt-lg" v-for="(theme, index) in PttTheme" :key="index">
       <div class="imgBox">
         <q-img :src="PttTheme[index].imgUrl" :ratio="1" spinner-color="primary" />
-        <div class="imgBoxText">
-          <q-btn :to="'/PTTIndependentPage/' + PttTheme[index].name">
+        <div class="imgBoxText" style="opacity: 1;">
+          <q-btn flat :to="'/PTTIndependentPage/' + PttTheme[index].name">
             {{ PttTheme[index].name }}
           </q-btn>
         </div>

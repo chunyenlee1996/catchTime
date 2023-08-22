@@ -204,6 +204,7 @@ const getData = async (value) => {
   width: 80vw;
   height: 80vh;
   border: 1px dashed #333;
+  background-color: #fff;
   /* border-radius: 50px; */
 }
 

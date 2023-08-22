@@ -1,4 +1,7 @@
 <template>
+    <!-- title -->
+    <div class="q-mb-md q-mt-xl text-center text-h2 text-weight-medium text-uppercase">Discovery</div>
+  <div class="text-center text-h4">Explore interesting, captivating ideas</div>
   <!-- search bar -->
   <SearchBar @SearchTheme="imgItems" />
   <!-- photo group -->

@@ -13,12 +13,12 @@
   </div>
   <!-- body -->
   <div class="q-pa-xl text-center">
-    <div style="width: 100%;background-color: #ceede6;">
+    <div style="width: 100%;">
       <!-- aboutMe -->
       <div id="aboutMe" class="q-pa-xl">
         <div id="aboutMeLeft" class="float-left">
           <div class="text-h4 text-left">About Me</div>
-          <div class="aboutMEBox text-left q-mt-md">{{ aboutMeData.aboutMe }}</div>
+          <div class="aboutMEBox text-left q-mt-md" style=" white-space:pre">{{ aboutMeData.aboutMe }}</div>
         </div>
         <div id="aboutMeRight" class="float-right"><q-img :src="aboutMeData.mainImg" :ratio="1" class="rounded-borders" />
         </div>
@@ -60,7 +60,7 @@
                 <q-separator />
 
                 <q-card-actions align="right">
-                  <q-btn label="送出" type="submit" color="primary" loading="true" />
+                  <q-btn label="送出" type="submit" color="primary" :loading="loading" />
                 </q-card-actions>
               </q-form>
             </q-card>
@@ -121,7 +121,7 @@
         </div>
       </div>
       <!-- ptt -->
-      <div class="q-pa-xl contentBox">
+      <div class="q-pa-xl contentBox" style="background-color:whitesmoke;" >
         <!-- 話題跟按鈕 -->
         <div>
           <div class="text-h4 text-left">你的話題 <span class="float-right"><q-btn round color="white" text-color="black"
@@ -160,7 +160,7 @@
                 <q-separator />
 
                 <q-card-actions align="right">
-                  <q-btn label="送出" type="submit" color="primary" loading="true" />
+                  <q-btn label="送出" type="submit" color="primary" :loading="loading" />
                 </q-card-actions>
               </q-form>
             </q-card>
@@ -275,7 +275,7 @@
                       </template>
 
                       <template v-slot:append>
-                        <q-icon name="access_time" class="cursor-pointer">
+                        <q-icon name="access_time" class="cursor-pointloadinger">
                           <q-popup-proxy cover transition-show="scale" transition-hide="scale">
                             <q-time v-model="activityData.date" mask="YYYY-MM-DD HH:mm">
                               <div class="row items-center justify-end">
@@ -292,7 +292,7 @@
                 <q-separator />
 
                 <q-card-actions align="right">
-                  <q-btn label="送出" type="submit" color="primary" loading="true" />
+                  <q-btn label="送出" type="submit" color="primary" :loading="loading" />
                 </q-card-actions>
               </q-form>
             </q-card>
@@ -329,11 +329,11 @@
         </q-dialog>
       </div>
       <!-- 你參與的活動 -->
-      <div class="q-pa-xl contentBox">
+      <div class="q-pa-xl contentBox" style="background-color:whitesmoke;">
         <div class="text-h4 text-left">參與的活動</div>
         <div class="row">
           <q-card v-for="(value, idx) in saveJoinActivity" :key="idx"
-            class="q-mt-md q-ml-md col-2 my-card bg-blue-grey-2 ">
+            class="q-mt-md q-ml-md col-2 my-card  ">
             <q-card-section>
               <div class="text-h6">{{ value.head }}</div>
               <div class="text-subtitle2 text-left q-mt-xs">{{ value.content }}</div>
@@ -369,6 +369,7 @@ const imgFixedTrue = ref([])
 const imgDeleteTrue = ref([])
 const deleteId = ref()
 const revisePhotoId = ref('')
+const loading = ref(false)
 const aboutMeData = ref({ aboutMe: '', mainImg: 'https://github.com/chunyenlee1996.png' })
 // 判斷是否從aboutMe點進來的
 const reviseAboutMeBoolean = ref(false)
@@ -431,6 +432,7 @@ const resetForm = () => {
   imgData.files = ''
   imgData.rawFiles = ''
   revisePhotoId.value = ''
+  loading.value = false
 }
 // 點擊新增照片按鈕
 const clickCreateImg = () => {
@@ -441,6 +443,7 @@ const clickCreateImg = () => {
 const onSubmit = async (value) => {
   // if (imgData.files.length === 0) return
   try {
+    loading.value = true
     const fd = new FormData()
     // fd.append('userId', value.imgData.userId)
     fd.append('name', imgData.name)
@@ -533,6 +536,7 @@ const resetPTTForm = () => {
   allThemePTTData.files = ''
   allThemePTTData.rawFiles = ''
   revisePttId.value = ''
+  loading.value = false
 }
 const allThemePTTData = reactive({
   head: '',
@@ -543,6 +547,7 @@ const allThemePTTData = reactive({
 })
 const allThemeSubmit = async (value) => {
   try {
+    loading.value = true
     const fd = new FormData()
     // fd.append('userId', value.imgData.userId)
     fd.append('head', allThemePTTData.head)
@@ -702,6 +707,7 @@ const createActivity = () => {
 // 創建的活動送出
 const createActivitySubmit = async () => {
   try {
+    loading.value = true
     const fd = new FormData()
     fd.append('head', activityData.head)
     fd.append('content', activityData.content)
@@ -816,7 +822,7 @@ const removeJoinActivity = async (index) => {
 }
 
 .PTTInSideBox {
-  background-color: whitesmoke;
+  background-color: white;
   width: 100%;
   height: 100%;
 }
