@@ -13,8 +13,8 @@
       <div class="listHeaderGroup ">
         <q-scroll-area :thumb-style="thumbStyle" :bar-style="barStyle" style="height: 100%; width: 100%;">
           <q-item class="q-mr-md" v-for="(box, i) in ActivityData" :key="i" clickable @click="ActivityDataClick(i)" style="border-bottom: 1px solid #333;">
-            <q-item-section>
-              <q-item-label>{{ ActivityData[i].head }}</q-item-label>
+            <q-item-section style="width:20vw;" >
+              <q-item-label lines="1">{{ ActivityData[i].head }}</q-item-label>
             </q-item-section>
 
             <q-item-section side top>
@@ -31,7 +31,7 @@
             style="height:300px;width: 100%;">
             <div class="text-h4 text-center ">{{ activityDataForOne.head }}</div>
             <div class=" text-subtitle1 q-pa-md">
-              <p>{{ activityDataForOne.content }}</p>
+              <p style="white-space:break-spaces;">{{ activityDataForOne.content }}</p>
             </div>
             <div class="text-right q-mr-lg">
               <q-avatar rounded size="md" v-if="activityDataForOne.head !== '點選旁邊的欄位'">

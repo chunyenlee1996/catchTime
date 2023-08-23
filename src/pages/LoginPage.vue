@@ -19,7 +19,7 @@
             val => !!val || '請輸入密碼',]" />
 
           <div>
-            <q-btn label="送出" type="submit" color="primary" />
+            <q-btn label="送出" type="submit" color="primary" :loading="loading"/>
           </div>
           <div class="text-right">
             <q-btn flat color="primary" label="註冊" to="/RegisterPage" />
@@ -33,34 +33,34 @@
     <div class="view">
       <div class="pic-container">
         <div class="pic">
-          <img src="https://picsum.photos/300/300?random=10" alt="" />
+          <img src="https://picsum.photos/300/300?random=90" alt="" />
+        </div>
+        <div class="pic">
+          <img src="https://picsum.photos/300/300?random=80" alt="" />
+        </div>
+        <div class="pic">
+          <img src="https://picsum.photos/300/300?random=70" alt="" />
+        </div>
+        <div class="pic">
+          <img src="https://picsum.photos/300/300?random=60" alt="" />
+        </div>
+        <div class="pic">
+          <img src="https://picsum.photos/300/300?random=50" alt="" />
+        </div>
+        <div class="pic">
+          <img src="https://picsum.photos/300/300?random=40" alt="" />
+        </div>
+        <div class="pic">
+          <img src="https://picsum.photos/300/300?random=30" alt="" />
+        </div>
+        <div class="pic">
+          <img src="https://picsum.photos/300/300?random=2" alt="" />
         </div>
         <div class="pic">
           <img src="https://picsum.photos/300/300?random=10" alt="" />
         </div>
         <div class="pic">
-          <img src="https://picsum.photos/300/300?random=10" alt="" />
-        </div>
-        <div class="pic">
-          <img src="https://picsum.photos/300/300?random=10" alt="" />
-        </div>
-        <div class="pic">
-          <img src="https://picsum.photos/300/300?random=10" alt="" />
-        </div>
-        <div class="pic">
-          <img src="https://picsum.photos/300/300?random=10" alt="" />
-        </div>
-        <div class="pic">
-          <img src="https://picsum.photos/300/300?random=10" alt="" />
-        </div>
-        <div class="pic">
-          <img src="https://picsum.photos/300/300?random=10" alt="" />
-        </div>
-        <div class="pic">
-          <img src="https://picsum.photos/300/300?random=10" alt="" />
-        </div>
-        <div class="pic">
-          <img src="https://picsum.photos/300/300?random=10" alt="" />
+          <img src="https://picsum.photos/300/300?random=1" alt="" />
         </div>
       </div>
     </div>
@@ -213,7 +213,6 @@ import { useRouter } from 'vue-router'
 import { api } from 'src/boot/axios'
 // 將 pinia 的資訊拉進來
 import { useUserStore } from 'src/stores/user'
-// import { gsap } from 'gsap'
 
 const $q = useQuasar()
 const router = useRouter()
@@ -221,8 +220,10 @@ const user = useUserStore()
 
 const account = ref('')
 const password = ref('')
+const loading = ref(false)
 const onSubmit = async (value) => {
   try {
+    loading.value = true
     const { data } = await api.post('/users/login', {
       account: account.value,
       password: password.value
@@ -238,6 +239,7 @@ const onSubmit = async (value) => {
       avatar: data.result.avatar,
       userId: data.result.userId
     })
+    loading.value = false
     $q.notify({
       message: 'success',
       caption: '登入成功',
@@ -254,17 +256,7 @@ const onSubmit = async (value) => {
     })
   }
 }
-
-// onMounted(
-//   () => {
-//     console.log(gsap)
-//     gsap.to('.photo', {
-//       y: -1000,
-//       duration: 3,
-//       repeat: -1,
-//       yoyo: true,
-//       ease: 'back'
-//     })
-//   }
-// )
 </script>
+<style scoped>
+
+</style>

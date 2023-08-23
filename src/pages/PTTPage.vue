@@ -73,35 +73,35 @@ const $q = useQuasar()
 const PttTheme = ([
   {
     name: '風景攝影',
-    imgUrl: 'https://picsum.photos/1080/1080/?random=10'
+    imgUrl: new URL('../assets/PttThemePhoto/1.jpg', import.meta.url).href
   },
   {
     name: '人像攝影',
-    imgUrl: 'https://picsum.photos/1080/1080/?random=9'
+    imgUrl: new URL('../assets/PttThemePhoto/2.jpg', import.meta.url).href
   },
   {
     name: '動態攝影',
-    imgUrl: 'https://picsum.photos/1080/1080/?random=8'
+    imgUrl: new URL('../assets/PttThemePhoto/3.jpg', import.meta.url).href
   },
   {
     name: '建築攝影',
-    imgUrl: 'https://picsum.photos/1080/1080/?random=7'
+    imgUrl: new URL('../assets/PttThemePhoto/4.jpg', import.meta.url).href
   },
   {
     name: '靜物攝影',
-    imgUrl: 'https://picsum.photos/1080/1080/?random=6'
+    imgUrl: new URL('../assets/PttThemePhoto/5.jpg', import.meta.url).href
   },
   {
     name: '紀實攝影',
-    imgUrl: 'https://picsum.photos/1080/1080/?random=5'
+    imgUrl: new URL('../assets/PttThemePhoto/6.jpg', import.meta.url).href
   },
   {
     name: '實驗性攝影',
-    imgUrl: 'https://picsum.photos/1080/1080/?random=4'
+    imgUrl: new URL('../assets/PttThemePhoto/7.jpg', import.meta.url).href
   },
   {
     name: '其他',
-    imgUrl: 'https://picsum.photos/1080/1080/?random=3'
+    imgUrl: new URL('../assets/PttThemePhoto/8.jpg', import.meta.url).href
   }
 ])
 // createPTTDialog 開關預設

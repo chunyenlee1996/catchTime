@@ -18,7 +18,7 @@
       <div id="aboutMe" class="q-pa-xl">
         <div id="aboutMeLeft" class="float-left">
           <div class="text-h4 text-left">About Me</div>
-          <div class="aboutMEBox text-left q-mt-md" style=" white-space:pre">{{ aboutMeData.aboutMe }}</div>
+          <div class="aboutMEBox text-left q-mt-md" style="">{{ aboutMeData.aboutMe }}</div>
         </div>
         <div id="aboutMeRight" class="float-right"><q-img :src="aboutMeData.mainImg" :ratio="1" class="rounded-borders" />
         </div>
@@ -68,7 +68,7 @@
         </div>
         <!-- 迴圈圖片 -->
         <div class="row q-mt-md">
-          <div v-for="(result, index) in saveUserImage" :key="result._id">
+          <q-intersection style="width: 16vw;height: 16vw;" v-for="(result, index) in saveUserImage" :key="result._id">
             <div class="imgBox">
               <q-img :src="result.imgURL" :ratio="1" spinner-color="primary" />
               <div class="imgBoxText">
@@ -117,14 +117,14 @@
                 </q-card-actions>
               </q-card>
             </q-dialog>
-          </div>
+          </q-intersection>
         </div>
       </div>
       <!-- ptt -->
       <div class="q-pa-xl contentBox" style="background-color:whitesmoke;" >
         <!-- 話題跟按鈕 -->
         <div>
-          <div class="text-h4 text-left">你的話題 <span class="float-right"><q-btn round color="white" text-color="black"
+          <div class="text-h4 text-left">我的話題 <span class="float-right"><q-btn round color="white" text-color="black"
                 icon="add" @click="openAllThemeCreatePTTDialog" /></span></div>
         </div>
         <!-- pttCreateDialog -->
@@ -174,18 +174,20 @@
               <q-btn flat round color="grey" size="sm" icon="delete" class=" absolute " style="top: 10px;right: 10px;"
                 @click="pttWantDelete(i)" />
               <div class="text-center text-h5 q-pt-sm
-              q-ml-md q-mr-md">{{ box.head }}</div>
-              <div class="text-weight-regular text-left q-ml-md">{{ box.content }}</div>
+              q-ml-md q-mr-md headTextOver">{{ box.head }}</div>
+              <div class="text-weight-regular text-left q-ml-md" style="white-space:pre; height: 47%; overflow: hidden;">{{ box.content }}</div>
             </div>
           </div>
         </div>
         <!-- 顯示全部 pttDialog -->
         <q-dialog v-model="pttOpenDialog">
-          <q-card class="pttDialog">
+          <q-card flat bordered class="pttDialog">
             <q-card-section class="activityMainBox">
+              <q-scroll-area class="q-mt-lg" style="height:40vh; width:100%;">
               <div class="text-h5 text-center">{{ pttDialogData.head }}</div>
-              <div class="text-weight-regular text-left q-ml-md">{{ pttDialogData.content }}</div>
-              <q-btn class="absolute" style="right: 0px; bottom: 0;" flat round icon="fa-solid fa-ellipsis"
+              <div class="text-weight-regular text-left " style="white-space:break-spaces; width: 520px;">{{ pttDialogData.content }}</div>
+            </q-scroll-area>
+              <q-btn class="absolute" style="right: 0px; bottom: 0; background-color: white;" flat icon="fa-solid fa-ellipsis"
                 @click="revisePTT" />
             </q-card-section>
             <!-- 留言部份 -->
@@ -230,7 +232,7 @@
       <!-- activity -->
       <div class="q-pa-xl contentBox">
         <div>
-          <div class="text-h4 text-left">你的活動 <span class="float-right"><q-btn round color="white" text-color="black"
+          <div class="text-h4 text-left">我舉辦的活動 <span class="float-right"><q-btn round color="white" text-color="black"
                 icon="add" @click="createActivity" /></span></div>
         </div>
         <!-- CreateActivityDialog -->
@@ -287,6 +289,9 @@
                       </template>
                     </q-input>
                   </div>
+                  <q-input filled type="textarea" v-model="activityData.address" label="地址 *" lazy-rules
+                    :rules="[val => !!val || '缺少地點',]" />
+                    <q-input filled type="textarea" v-model="activityData.mainURL" label="超連結 *" />
                 </q-card-section>
 
                 <q-separator />
@@ -307,7 +312,7 @@
                 @click="activityWantDelete(i)" />
               <div class="text-center text-h5 q-pt-sm
               q-ml-md q-mr-md">{{ box.head }}</div>
-              <div class="text-weight-regular text-left q-ml-md">{{ box.content }}</div>
+              <div class="text-weight-regular text-left q-ml-md" style="white-space:pre; height: 47%; overflow: hidden;">{{ box.content }}</div>
             </div>
           </div>
         </div>
@@ -688,7 +693,9 @@ const activityData = reactive({
   files: '',
   rawFiles: '',
   date: '',
-  theme: ''
+  theme: '',
+  address: '',
+  mainURL: ''
 })
 // 清空活動資料存放區
 const clearActivityData = () => {
@@ -698,6 +705,8 @@ const clearActivityData = () => {
   activityData.rawFiles = ''
   activityData.date = ''
   activityData.theme = ''
+  activityData.address = ''
+  activityData.mainURL = ''
 }
 // 創建活動按鈕點擊後
 const createActivity = () => {
@@ -714,6 +723,8 @@ const createActivitySubmit = async () => {
     fd.append('date', activityData.date)
     fd.append('imgURL', activityData.files[0].file)
     fd.append('theme', activityData.theme)
+    fd.append('address', activityData.address)
+    fd.append('mainURL', activityData.mainURL)
     await apiAuth.post('/activity/', fd)
     createActivityDialog.value = false
     getActivity()
@@ -801,8 +812,9 @@ const removeJoinActivity = async (index) => {
 
 .aboutMEBox {
   width: 400px;
-  height: 220px;
+  height: 200px;
   /* background-color: #333; */
+  white-space:break-spaces;
 }
 
 .contentBox {
@@ -834,12 +846,12 @@ const removeJoinActivity = async (index) => {
 }
 
 .activityMainBox {
-  height: 350px;
   border-bottom: 1px solid #333;
+  width: 100%;
 }
 
 .pttDialog {
-  width: 80vh;
+  width: 100%;
 }
 
 .editorDialogContainer {

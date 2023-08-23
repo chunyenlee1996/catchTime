@@ -51,7 +51,7 @@ export default route(function (/* { store, ssrContext } */) {
       next('/login')
     } else if (to.meta.admin && !user.isAdmin) {
       // 如果不是管理員，去需要管理員，導向回首頁
-      next('/')
+      next('/IndexPage')
     } else {
       // 不做導向
       next()

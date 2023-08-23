@@ -6,9 +6,12 @@
         <div class="activityBox"  v-for="(result,idx) in saveActivityData" :key="idx">
             <img class="activityImg" :src="result.imgURL">
           <div class="activityContent">
-            <div class="q-ma-xl text-h3">{{ result.head }}</div>
-            <div class="text-h6 q-ma-xl" style="white-space: pre;">{{ result.content }}</div>
-            <div class="text-h6 q-ma-xl" style="white-space: pre;">{{ new Date(result.date).toLocaleDateString() }}</div>
+            <q-scroll-area style="width:100%; height: 100%;">
+              <div class="q-ma-xl text-h3">{{ result.head }}</div>
+              <div class="text-h6 q-ma-xl" style="white-space:break-spaces;">{{ result.content }}</div>
+              <div class="text-h6 q-ma-xl" style="white-space:break-spaces;">{{ result.mainURL }}</div>
+              <div class="text-h6 q-ma-xl" style="white-space:break-spaces;">活動日期 ： {{ new Date(result.date).toLocaleDateString() }}</div>
+            </q-scroll-area>
           </div>
           <div class="btn">
             <q-btn v-if="result.join.includes(user.userId.toString())" label="取消參與"
@@ -108,6 +111,7 @@ onMounted(() => {
   .activityContent{
     height: 650px;
     display: inline-block;
+    width: calc(100% - 460px);
   }
   .btn{
     position: absolute;

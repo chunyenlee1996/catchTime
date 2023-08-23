@@ -265,3 +265,9 @@ body {
     }
   }
 }
+//如果超過的話會變點點點
+.headTextOver{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

@@ -9,18 +9,18 @@
     </div>
   <div class="bottomsBox">
     <div class="bottom">
-      <div class="topLeft_btn" />
-      <div class="bottomRight_btn" />
+      <!-- <div class="topLeft_btn" />
+      <div class="bottomRight_btn" /> -->
       <q-btn class="routerBtn" flat  label="發現" to="/ImagePage" />
     </div>
     <div class="bottom" >
-      <div class="topLeft_btn" />
-      <div class="bottomRight_btn" />
+      <!-- <div class="topLeft_btn" />
+      <div class="bottomRight_btn" /> -->
       <q-btn class="routerBtn" flat  label="論壇" to="/PTTPage" />
     </div>
     <div class="bottom">
-      <div class="topLeft_btn" />
-      <div class="bottomRight_btn" />
+      <!-- <div class="topLeft_btn" />
+      <div class="bottomRight_btn" /> -->
       <q-btn class="routerBtn" flat  label="活動" to="/ActivityPage" />
     </div>
   </div>
@@ -172,5 +172,6 @@
   height: 100%;
   font-size: 15px;
   color: #fff;
+  border-bottom: 1px solid #fff;
 }
 </style>

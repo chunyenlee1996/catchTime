@@ -52,7 +52,7 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import { useUserStore } from 'src/stores/user'
 // 解構會失去響應性，要加這個才不會失去響應性，或不解構也行(!user.isLogin)
 import { storeToRefs } from 'pinia'
@@ -67,6 +67,10 @@ const { isLogin } = storeToRefs(user)
 
 const { isAdmin } = storeToRefs(user)
 
+// 進到這網頁直接跳頁到首頁
+onMounted(() => {
+  router.push('/IndexPage')
+})
 const toggleRightDrawer = () => {
   rightDrawerOpen.value = !rightDrawerOpen.value
 }

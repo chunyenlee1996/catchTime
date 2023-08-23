@@ -5,7 +5,7 @@
       disableOnInteraction: false,
     }" :modules="modules" @autoplayTimeLeft="onAutoplayTimeLeft">
       <swiper-slide v-for="(result, idx) in swiperPhotoData" :key="idx" class="swiperCss">
-        <img :src="result.imgURL" style="height:calc(100vh - 50px) ;">
+        <img :src="result" style="height:calc(100vh - 50px); width: 100%; object-fit: cover;">
       </swiper-slide>
     </swiper>
   </div>
@@ -16,26 +16,25 @@ import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 import { Swiper, SwiperSlide } from 'swiper/vue'
-import { api } from 'src/boot/axios'
-import { onMounted, reactive } from 'vue'
+import { reactive } from 'vue'
 // import required modules
 import { Navigation, Pagination, Autoplay } from 'swiper/modules'
 
 // swiper 部分
 const modules = reactive([Autoplay, Pagination, Navigation])
-const swiperPhotoData = reactive([])
-const getPhoto = async () => {
-  try {
-    const { data } = await api.get('/images/all')
-    swiperPhotoData.push(...data.result)
-    console.log(swiperPhotoData)
-  } catch (error) {
-    console.log(error)
-  }
-}
-onMounted(() => {
-  getPhoto()
-})
+const swiperPhotoData = reactive([
+  new URL('../assets/indexSwiper/2H2A0938.jpg', import.meta.url).href,
+  new URL('../assets/indexSwiper/2H2A1450.jpg', import.meta.url).href,
+  new URL('../assets/indexSwiper/2H2A1670.jpg', import.meta.url).href,
+  new URL('../assets/indexSwiper/2H2A1780.jpg', import.meta.url).href,
+  new URL('../assets/indexSwiper/2H2A3411.jpg', import.meta.url).href,
+  new URL('../assets/indexSwiper/2H2A3511.jpg', import.meta.url).href,
+  new URL('../assets/indexSwiper/2H2A5696.jpg', import.meta.url).href,
+  new URL('../assets/indexSwiper/2H2A6170.jpg', import.meta.url).href,
+  new URL('../assets/indexSwiper/2H2A7005.jpg', import.meta.url).href,
+  new URL('../assets/indexSwiper/2H2A8192.jpg', import.meta.url).href
+])
+
 </script>
 
 <style scoped>
