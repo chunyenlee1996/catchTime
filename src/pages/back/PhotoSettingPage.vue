@@ -1,10 +1,10 @@
 <template>
+<div class="q-mb-md q-mt-xl text-center text-h2 text-weight-medium text-uppercase">Discovery</div>
   <!-- search bar -->
   <div class="q-pa-xl row justify-center">
     <q-form @submit="onSubmit" class="q-gutter-md col-9">
       <q-input name="theme" v-model="search" color="primary" label="搜尋類型" filled
-        hint="風景攝影, 人像攝影, 動態攝影, 建築攝影, 靜物攝影, 紀實攝影, 實驗性攝影, 其他">
-        <q-btn flat :ripple="false" text-color="blue" icon="search" size="lg" @click="searchImgData" />
+        hint="可搜尋 ： 作者、類型、標題">
       </q-input>
     </q-form>
   </div>

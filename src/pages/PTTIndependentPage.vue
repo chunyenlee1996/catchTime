@@ -33,6 +33,12 @@
             <div class=" text-subtitle1 q-pa-md">
               <p style="white-space:break-spaces;">{{ activityDataForOne.content }}</p>
             </div>
+            <q-btn v-if="!!activityDataForOne.imgURL" style="width: 300px;" @click=" activityImgShow = true">
+              <img style="width: 300px;" :src="activityDataForOne.imgURL" alt="">
+            </q-btn>
+            <q-dialog v-model="activityImgShow">
+              <img style="width: 50vw;" :src="activityDataForOne.imgURL" alt="">
+            </q-dialog>
             <div class="text-right q-mr-lg">
               <q-avatar rounded size="md" v-if="activityDataForOne.head !== '點選旁邊的欄位'">
                 <img :src="activityDataForOne.userAvatar">
@@ -114,6 +120,8 @@ const UserResponseForActivity = ref('')
 // 編輯器開關
 const editorDialog = ref(false)
 
+// ptt 照片block 開關
+const activityImgShow = ref(false)
 // 使用者留言存放區
 // const userMessageArray = ref()
 
@@ -164,6 +172,7 @@ const getData = async (value) => {
       }
     })
     ActivityData.value = data.result
+    activityDataForOne.value = ActivityData.value[0]
   } catch (error) {
     console.log(error)
     $q.notify({

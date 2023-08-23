@@ -67,136 +67,136 @@
     <div class="view">
       <div class="pic-container2">
         <div class="pic">
-          <img src="https://picsum.photos/300/300?random=10" alt="" />
+          <img src="https://picsum.photos/300/300?random=100" alt="" />
         </div>
         <div class="pic">
-          <img src="https://picsum.photos/300/300?random=10" alt="" />
+          <img src="https://picsum.photos/300/300?random=101" alt="" />
         </div>
         <div class="pic">
-          <img src="https://picsum.photos/300/300?random=10" alt="" />
+          <img src="https://picsum.photos/300/300?random=102" alt="" />
         </div>
         <div class="pic">
-          <img src="https://picsum.photos/300/300?random=10" alt="" />
+          <img src="https://picsum.photos/300/300?random=103" alt="" />
         </div>
         <div class="pic">
-          <img src="https://picsum.photos/300/300?random=10" alt="" />
+          <img src="https://picsum.photos/300/300?random=104" alt="" />
         </div>
         <div class="pic">
-          <img src="https://picsum.photos/300/300?random=10" alt="" />
+          <img src="https://picsum.photos/300/300?random=105" alt="" />
         </div>
         <div class="pic">
-          <img src="https://picsum.photos/300/300?random=10" alt="" />
+          <img src="https://picsum.photos/300/300?random=106" alt="" />
         </div>
         <div class="pic">
-          <img src="https://picsum.photos/300/300?random=10" alt="" />
+          <img src="https://picsum.photos/300/300?random=107" alt="" />
         </div>
         <div class="pic">
-          <img src="https://picsum.photos/300/300?random=10" alt="" />
+          <img src="https://picsum.photos/300/300?random=108" alt="" />
         </div>
         <div class="pic">
-          <img src="https://picsum.photos/300/300?random=10" alt="" />
+          <img src="https://picsum.photos/300/300?random=109" alt="" />
         </div>
       </div>
     </div>
     <div class="view">
       <div class="pic-container3">
         <div class="pic">
-          <img src="https://picsum.photos/300/300?random=10" alt="" />
+          <img src="https://picsum.photos/300/300?random=1011" alt="" />
         </div>
         <div class="pic">
-          <img src="https://picsum.photos/300/300?random=10" alt="" />
+          <img src="https://picsum.photos/300/300?random=1022" alt="" />
         </div>
         <div class="pic">
-          <img src="https://picsum.photos/300/300?random=10" alt="" />
+          <img src="https://picsum.photos/300/300?random=1033" alt="" />
         </div>
         <div class="pic">
-          <img src="https://picsum.photos/300/300?random=10" alt="" />
+          <img src="https://picsum.photos/300/300?random=1044" alt="" />
         </div>
         <div class="pic">
-          <img src="https://picsum.photos/300/300?random=10" alt="" />
+          <img src="https://picsum.photos/300/300?random=1055" alt="" />
         </div>
         <div class="pic">
-          <img src="https://picsum.photos/300/300?random=10" alt="" />
+          <img src="https://picsum.photos/300/300?random=1066" alt="" />
         </div>
         <div class="pic">
-          <img src="https://picsum.photos/300/300?random=10" alt="" />
+          <img src="https://picsum.photos/300/300?random=1077" alt="" />
         </div>
         <div class="pic">
-          <img src="https://picsum.photos/300/300?random=10" alt="" />
+          <img src="https://picsum.photos/300/300?random=1088" alt="" />
         </div>
         <div class="pic">
-          <img src="https://picsum.photos/300/300?random=10" alt="" />
+          <img src="https://picsum.photos/300/300?random=1099" alt="" />
         </div>
         <div class="pic">
-          <img src="https://picsum.photos/300/300?random=10" alt="" />
+          <img src="https://picsum.photos/300/300?random=1000" alt="" />
         </div>
       </div>
     </div>
     <div class="view">
       <div class="pic-container4">
         <div class="pic">
-          <img src="https://picsum.photos/300/300?random=10" alt="" />
+          <img src="https://picsum.photos/300/300?random=1021" alt="" />
         </div>
         <div class="pic">
-          <img src="https://picsum.photos/300/300?random=10" alt="" />
+          <img src="https://picsum.photos/300/300?random=1012" alt="" />
         </div>
         <div class="pic">
-          <img src="https://picsum.photos/300/300?random=10" alt="" />
+          <img src="https://picsum.photos/300/300?random=1032" alt="" />
         </div>
         <div class="pic">
-          <img src="https://picsum.photos/300/300?random=10" alt="" />
+          <img src="https://picsum.photos/300/300?random=1023" alt="" />
         </div>
         <div class="pic">
-          <img src="https://picsum.photos/300/300?random=10" alt="" />
+          <img src="https://picsum.photos/300/300?random=1034" alt="" />
         </div>
         <div class="pic">
-          <img src="https://picsum.photos/300/300?random=10" alt="" />
+          <img src="https://picsum.photos/300/300?random=1043" alt="" />
         </div>
         <div class="pic">
-          <img src="https://picsum.photos/300/300?random=10" alt="" />
+          <img src="https://picsum.photos/300/300?random=1045" alt="" />
         </div>
         <div class="pic">
-          <img src="https://picsum.photos/300/300?random=10" alt="" />
+          <img src="https://picsum.photos/300/300?random=1054" alt="" />
         </div>
         <div class="pic">
-          <img src="https://picsum.photos/300/300?random=10" alt="" />
+          <img src="https://picsum.photos/300/300?random=1056" alt="" />
         </div>
         <div class="pic">
-          <img src="https://picsum.photos/300/300?random=10" alt="" />
+          <img src="https://picsum.photos/300/300?random=1065" alt="" />
         </div>
       </div>
     </div>
     <div class="view">
       <div class="pic-container5">
         <div class="pic">
-          <img src="https://picsum.photos/300/300?random=10" alt="" />
+          <img src="https://picsum.photos/300/300?random=1031" alt="" />
         </div>
         <div class="pic">
-          <img src="https://picsum.photos/300/300?random=10" alt="" />
+          <img src="https://picsum.photos/300/300?random=1013" alt="" />
         </div>
         <div class="pic">
-          <img src="https://picsum.photos/300/300?random=10" alt="" />
+          <img src="https://picsum.photos/300/300?random=1024" alt="" />
         </div>
         <div class="pic">
-          <img src="https://picsum.photos/300/300?random=10" alt="" />
+          <img src="https://picsum.photos/300/300?random=1042" alt="" />
         </div>
         <div class="pic">
-          <img src="https://picsum.photos/300/300?random=10" alt="" />
+          <img src="https://picsum.photos/300/300?random=1035" alt="" />
         </div>
         <div class="pic">
-          <img src="https://picsum.photos/300/300?random=10" alt="" />
+          <img src="https://picsum.photos/300/300?random=1053" alt="" />
         </div>
         <div class="pic">
-          <img src="https://picsum.photos/300/300?random=10" alt="" />
+          <img src="https://picsum.photos/300/300?random=1046" alt="" />
         </div>
         <div class="pic">
-          <img src="https://picsum.photos/300/300?random=10" alt="" />
+          <img src="https://picsum.photos/300/300?random=1064" alt="" />
         </div>
         <div class="pic">
-          <img src="https://picsum.photos/300/300?random=10" alt="" />
+          <img src="https://picsum.photos/300/300?random=1577" alt="" />
         </div>
         <div class="pic">
-          <img src="https://picsum.photos/300/300?random=10" alt="" />
+          <img src="https://picsum.photos/300/300?random=1075" alt="" />
         </div>
       </div>
     </div>
@@ -257,6 +257,3 @@ const onSubmit = async (value) => {
   }
 }
 </script>
-<style scoped>
-
-</style>

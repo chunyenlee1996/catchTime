@@ -49,7 +49,7 @@
           <q-separator />
 
           <q-card-actions align="right">
-            <q-btn label="送出" type="submit" color="primary" loading="true" />
+            <q-btn label="送出" type="submit" color="primary" :loading="loading" />
           </q-card-actions>
         </q-form>
       </q-card>
@@ -68,6 +68,8 @@ import { apiAuth } from 'src/boot/axios'
 import { useQuasar } from 'quasar'
 // 引用內部元件區
 const $q = useQuasar()
+
+const loading = ref(false)
 
 // 群組份類表
 const PttTheme = ([
@@ -130,10 +132,12 @@ const resetForm = () => {
   allThemePTTData.theme = ''
   allThemePTTData.files = ''
   allThemePTTData.rawFiles = ''
+  loading.value = false
 }
 // 全類型的表單送出
 const allThemeSubmit = async (value) => {
   try {
+    loading.value = true
     const fd = new FormData()
     // fd.append('userId', value.imgData.userId)
     fd.append('head', allThemePTTData.head)

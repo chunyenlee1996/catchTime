@@ -186,6 +186,7 @@
               <q-scroll-area class="q-mt-lg" style="height:40vh; width:100%;">
               <div class="text-h5 text-center">{{ pttDialogData.head }}</div>
               <div class="text-weight-regular text-left " style="white-space:break-spaces; width: 520px;">{{ pttDialogData.content }}</div>
+              <div><img class="q-pa-xs" style="width: 100%;" :src="pttDialogData.imgURL" alt=""></div>
             </q-scroll-area>
               <q-btn class="absolute" style="right: 0px; bottom: 0; background-color: white;" flat icon="fa-solid fa-ellipsis"
                 @click="revisePTT" />
@@ -338,10 +339,12 @@
         <div class="text-h4 text-left">參與的活動</div>
         <div class="row">
           <q-card v-for="(value, idx) in saveJoinActivity" :key="idx"
-            class="q-mt-md q-ml-md col-2 my-card  ">
+            class="q-mt-md q-ml-md col-3 my-card  ">
             <q-card-section>
               <div class="text-h6">{{ value.head }}</div>
-              <div class="text-subtitle2 text-left q-mt-xs">{{ value.content }}</div>
+              <q-scroll-area style="width: 400px; height: 200px;">
+                <div class="text-subtitle2 text-left q-mt-xs joinActivityContent">{{ value.content }}</div>
+              </q-scroll-area>
             </q-card-section>
 
             <q-card-section align="right">
@@ -721,7 +724,7 @@ const createActivitySubmit = async () => {
     fd.append('head', activityData.head)
     fd.append('content', activityData.content)
     fd.append('date', activityData.date)
-    fd.append('imgURL', activityData.files[0].file)
+    if (activityData.files[0] !== undefined) fd.append('imgURL', activityData.files[0].file)
     fd.append('theme', activityData.theme)
     fd.append('address', activityData.address)
     fd.append('mainURL', activityData.mainURL)
@@ -857,5 +860,11 @@ const removeJoinActivity = async (index) => {
 .editorDialogContainer {
   width: 600px;
   background-color: #fff;
+}
+.joinActivityContent{
+  height: 100px;
+  width: 19vw;
+  white-space: break-spaces;
+
 }
 </style>

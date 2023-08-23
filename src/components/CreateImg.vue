@@ -33,7 +33,7 @@
           <q-separator />
 
           <q-card-actions align="right">
-            <q-btn label="送出" type="submit" color="primary" loading="true" />
+            <q-btn label="送出" type="submit" color="primary" :loading="loading" />
           </q-card-actions>
         </q-form>
       </q-card>
@@ -49,6 +49,7 @@ import { apiAuth } from 'src/boot/axios'
 const $q = useQuasar()
 const user = useUserStore()
 const fixed = ref(false)
+const loading = ref(false)
 // 設定表單資料儲存名稱
 const imgData = reactive({
   userId: user.userId,
@@ -64,6 +65,7 @@ const emit = defineEmits(['ImgItems'])
 const onSubmit = async (value) => {
   if (imgData.files.length === 0) return
   try {
+    loading.value = true
     const fd = new FormData()
     // fd.append('userId', value.imgData.userId)
     fd.append('name', imgData.name)
@@ -97,6 +99,7 @@ const resetForm = () => {
   imgData.formTheme = ''
   imgData.files = ''
   imgData.rawFiles = ''
+  loading.value = false
 }
 
 </script>
